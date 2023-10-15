@@ -4,7 +4,7 @@
   ansible.builtin.assert:
     that:
       - ca_passphrase is defined
-      - ca_passphrase is string
+      - ca_passphrase is string or ca_passphrase is vault_encrypted
       - ca_passphrase is not none
     quiet: yes
 
