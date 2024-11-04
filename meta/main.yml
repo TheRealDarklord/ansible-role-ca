@@ -10,7 +10,6 @@ galaxy_info:
   platforms:
     - name: EL
       versions:
-        - "8"
         - "9"
     - name: Debian
       versions:
@@ -18,12 +17,10 @@ galaxy_info:
     - name: Fedora
       versions:
         - all
-    - name: opensuse
-      versions:
-        - all
     - name: Ubuntu
       versions:
-        - all
+        - jammy
+        - focal
 
   galaxy_tags:
     - ca

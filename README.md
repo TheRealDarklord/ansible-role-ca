@@ -1,10 +1,10 @@
-# [ca](#ca)
+# [Ansible role ca](#ca)
 
 Install and configure a certificate authority on your system.
 
-|GitHub|GitLab|Quality|Downloads|Version|
-|------|------|-------|---------|-------|
-|[![github](https://github.com/robertdebock/ansible-role-ca/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-ca/actions)|[![gitlab](https://gitlab.com/robertdebock-iac/ansible-role-ca/badges/master/pipeline.svg)](https://gitlab.com/robertdebock-iac/ansible-role-ca)|[![quality](https://img.shields.io/ansible/quality/35543)](https://galaxy.ansible.com/robertdebock/ca)|[![downloads](https://img.shields.io/ansible/role/d/35543)](https://galaxy.ansible.com/robertdebock/ca)|[![Version](https://img.shields.io/github/release/robertdebock/ansible-role-ca.svg)](https://github.com/robertdebock/ansible-role-ca/releases/)|
+|GitHub|GitLab|Downloads|Version|
+|------|------|---------|-------|
+|[![github](https://github.com/robertdebock/ansible-role-ca/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-ca/actions)|[![gitlab](https://gitlab.com/robertdebock-iac/ansible-role-ca/badges/master/pipeline.svg)](https://gitlab.com/robertdebock-iac/ansible-role-ca)|[![downloads](https://img.shields.io/ansible/role/d/robertdebock/ca)](https://galaxy.ansible.com/robertdebock/ca)|[![Version](https://img.shields.io/github/release/robertdebock/ansible-role-ca.svg)](https://github.com/robertdebock/ansible-role-ca/releases/)|
 
 ## [Example Playbook](#example-playbook)
 
@@ -14,8 +14,8 @@ This example is taken from [`molecule/default/converge.yml`](https://github.com/
 ---
 - name: Converge
   hosts: all
-  become: yes
-  gather_facts: yes
+  become: true
+  gather_facts: true
 
   roles:
     - role: robertdebock.ca
@@ -27,8 +27,8 @@ The machine needs to be prepared. In CI this is done using [`molecule/default/pr
 ---
 - name: Prepare
   hosts: all
-  gather_facts: no
-  become: yes
+  become: true
+  gather_facts: false
 
   roles:
     - role: robertdebock.bootstrap
@@ -53,11 +53,11 @@ The default values for the variables are set in [`defaults/main.yml`](https://gi
 # defaults file for ca
 
 # set ca_init: 'yes' to create CA
-ca_init: yes
+ca_init: true
 
 # ca_own_root: 'yes' if you want to have yout own root CA.
 # if no, set ca_certificate_path manually
-ca_own_root: yes
+ca_own_root: true
 
 # A passphrase for the CA key.
 ca_passphrase: SuP3rS3creT
@@ -131,11 +131,10 @@ This role has been tested on these [container images](https://hub.docker.com/u/r
 
 |container|tags|
 |---------|----|
-|[EL](https://hub.docker.com/repository/docker/robertdebock/enterpriselinux/general)|8, 9|
-|[Debian](https://hub.docker.com/repository/docker/robertdebock/debian/general)|all|
-|[Fedora](https://hub.docker.com/repository/docker/robertdebock/fedora/general)|all|
-|[opensuse](https://hub.docker.com/repository/docker/robertdebock/opensuse/general)|all|
-|[Ubuntu](https://hub.docker.com/repository/docker/robertdebock/ubuntu/general)|all|
+|[EL](https://hub.docker.com/r/robertdebock/enterpriselinux)|9|
+|[Debian](https://hub.docker.com/r/robertdebock/debian)|all|
+|[Fedora](https://hub.docker.com/r/robertdebock/fedora)|all|
+|[Ubuntu](https://hub.docker.com/r/robertdebock/ubuntu)|jammy, focal|
 
 The minimum version of Ansible required is 2.12, tests have been done to:
 
@@ -143,7 +142,7 @@ The minimum version of Ansible required is 2.12, tests have been done to:
 - The current version.
 - The development version.
 
-If you find issues, please register them in [GitHub](https://github.com/robertdebock/ansible-role-ca/issues)
+If you find issues, please register them in [GitHub](https://github.com/robertdebock/ansible-role-ca/issues).
 
 ## [License](#license)
 
